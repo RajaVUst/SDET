@@ -1,10 +1,10 @@
-name: Playwright Tests
+name: UI
 
 on:
   push:
-    branches: [main, master]
+    branches: [304525-chandana_finalcapstone]
   pull_request:
-    branches: [main, master]
+    branches: [304525-chandana_finalcapstone]
 
 jobs:
   test:
