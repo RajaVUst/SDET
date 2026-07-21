@@ -10,7 +10,7 @@ export class CartPage extends BasePage{
     
 
     cartCount = this.page.getByTestId("cart-count").textContent();
-    // cartTotal = this.page.getByTestId("cart-total").textContent();
+    cartTotal = this.page.getByTestId("cart-total");
     cartList = this.page.getByTestId("cart-items-list");
     private removeBtn = this.page.getByRole("button",{name:"Remove"});
     emptyCartHeader = this.page.getByRole("heading",{name:"Your cart is empty"});
@@ -32,6 +32,11 @@ export class CartPage extends BasePage{
 
     async getCartCount(): Promise<string | null> {
         return await this.page.getByTestId("cart-count").textContent();
+    }
+
+    async getCartTotal(): Promise<number> {
+        const text = await this.cartTotal.textContent();
+        return Number(text?.replace("$", ""));
     }
 
 
