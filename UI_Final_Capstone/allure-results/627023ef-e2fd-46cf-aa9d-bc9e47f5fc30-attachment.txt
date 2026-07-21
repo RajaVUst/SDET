@@ -1,2 +1,0 @@
-2026-07-21 17:02:19 | INFO | TEST-539879-970 | 5BA9B226 | [Framework] [Initialize] Starting Test Execution
-2026-07-21 17:02:19 | INFO | TEST-539879-970 | 5BA9B226 | [Home] [Launch] Opening RetailMart

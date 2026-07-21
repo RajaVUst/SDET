@@ -1,2 +1,0 @@
-2026-07-21 13:20:29 | INFO | TEST-229326-664 | B3B631B9 | [Framework] [Initialize] Starting Test Execution
-2026-07-21 13:20:29 | INFO | TEST-229326-664 | B3B631B9 | [Home] [Launch] Opening RetailMart

@@ -1,4 +1,0 @@
-2026-07-21 13:20:29 | INFO | TEST-229195-540 | FAE1513A | [Framework] [Initialize] Starting Test Execution
-2026-07-21 13:20:29 | INFO | TEST-229195-540 | FAE1513A | [Home] [Launch] Opening RetailMart
-2026-07-21 13:20:34 | INFO | TEST-229195-540 | FAE1513A | [Payment] [Add Products] Adding products to cart
-2026-07-21 13:20:41 | INFO | TEST-229195-540 | FAE1513A | [Checkout] [Payment] Entering payment details
