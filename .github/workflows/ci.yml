@@ -1,10 +1,39 @@
-name: Playwright Tests
+name: Playwright and restAssured Tests
 on:
   push:
     branches: [ main, Sankaran_Final_Assessment]
   pull_request:
     branches: [ main]
 jobs:
+  api-tests:
+    runs-on: ubuntu-latest
+    env:
+      BASE_URI: ${{ secrets.BASE_URI }}
+      PASSWORD: ${{ secrets.PASSWORD }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up JDK 22
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '22'
+          cache: maven
+
+      - name: Run REST Assured API tests
+        run: mvn --batch-mode verify
+        working-directory: FinalCapstone_APIAutomation
+
+      - name: Upload API test reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: restassured-test-reports
+          path: |
+            FinalCapstone_APIAutomation/target/surefire-reports/
+            FinalCapstone_APIAutomation/target/allure-results/
+          if-no-files-found: warn
+
   ui-tests:
     runs-on: ubuntu-latest
     env:
