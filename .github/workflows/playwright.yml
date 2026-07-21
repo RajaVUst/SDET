@@ -10,6 +10,7 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
+    working-directory: ./UI_Final_Capstone
     env:
       BASE_URL: ${{ secrets.BASE_URL || 'https://chess-agent-83252463.figma.site/' }}
       DEMO_USER_ID: ${{ secrets.DEMO_USER_ID || 'demo-login-user-003' }}
@@ -24,8 +25,9 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
+          cache-dependency-path: ./UI_Final_Capstone/package-lock.json
 
       - name: Install dependencies
         run: |
@@ -53,9 +55,9 @@ jobs:
         with:
           name: playwright-artifacts
           path: |
-            playwright-report/
-            test-results/
-            reports/
+            UI_Final_Capstone/playwright-report/
+            UI_Final_Capstone/test-results/
+            UI_Final_Capstone/reports/
           if-no-files-found: ignore
           retention-days: 30
 
