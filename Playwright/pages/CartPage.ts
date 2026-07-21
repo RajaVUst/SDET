@@ -30,5 +30,9 @@ export class CartPage extends BasePage{
         await this.checkoutBtn.click();
     }
 
+    async getCartCount(): Promise<string | null> {
+        return await this.page.getByTestId("cart-count").textContent();
+    }
+
 
 }
