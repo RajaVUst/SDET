@@ -1,7 +1,7 @@
 # SDET - UI Final Capstone
 
 ## Project Overview
-This is a Selenium-based End-to-End (SDET) testing project for automated UI testing using Playwright. The project includes comprehensive test suites for payment validation, cart functionality, and accessibility testing.
+This project is for automated UI testing using Playwright. The project includes comprehensive test suites for payment validation, cart functionality, and accessibility testing.
 
 ## UST ID
 **UST ID:** 304525

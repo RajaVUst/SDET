@@ -1,0 +1,9 @@
+2026-07-21 13:25:43 | INFO | TEST-543015-548 | 7E148D6D | [Framework] [Initialize] Starting Test Execution
+2026-07-21 13:25:43 | INFO | TEST-543015-548 | 7E148D6D | [Home] [Launch] Opening RetailMart
+Accessibility Violations
+color-contrast
+Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds
+heading-order
+Ensure the order of headings is semantically correct
+landmark-unique
+Ensure landmarks are unique

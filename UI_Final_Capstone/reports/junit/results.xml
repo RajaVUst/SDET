@@ -1,0 +1,32 @@
+<testsuites id="" name="" tests="3" failures="0" skipped="0" errors="0" time="29.782162">
+<testsuite name="cartvalidation.spec.ts" timestamp="2026-07-21T08:01:26.987Z" hostname="chromium" tests="3" failures="0" skipped="0" time="51.222" errors="0">
+<testcase name="Shopping Cart › Add multiple products and validate cart" classname="cartvalidation.spec.ts" time="21.892">
+<system-out>
+<![CDATA[2026-07-21 13:31:34 | INFO | TEST-894154-915 | 21E05D3B | [Framework] [Initialize] Starting Test Execution
+2026-07-21 13:31:34 | INFO | TEST-894154-915 | 21E05D3B | [Home] [Launch] Opening RetailMart
+Accessibility Violations
+color-contrast
+Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds
+heading-order
+Ensure the order of headings is semantically correct
+landmark-unique
+Ensure landmarks are unique
+]]>
+</system-out>
+</testcase>
+<testcase name="Shopping Cart › Negative - Search unavailable product" classname="cartvalidation.spec.ts" time="15.293">
+<system-out>
+<![CDATA[2026-07-21 13:31:34 | INFO | TEST-894829-566 | 96D3F63A | [Framework] [Initialize] Starting Test Execution
+2026-07-21 13:31:34 | INFO | TEST-894829-566 | 96D3F63A | [Home] [Launch] Opening RetailMart
+]]>
+</system-out>
+</testcase>
+<testcase name="Shopping Cart › Edge Case - Search with empty value" classname="cartvalidation.spec.ts" time="14.037">
+<system-out>
+<![CDATA[2026-07-21 13:31:34 | INFO | TEST-894083-191 | 52E41D6D | [Framework] [Initialize] Starting Test Execution
+2026-07-21 13:31:34 | INFO | TEST-894083-191 | 52E41D6D | [Home] [Launch] Opening RetailMart
+]]>
+</system-out>
+</testcase>
+</testsuite>
+</testsuites>

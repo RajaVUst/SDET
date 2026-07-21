@@ -5,6 +5,8 @@ export default defineConfig({
 
   testDir: './tests',
 
+  timeout: config.timeout,   // <-- ADD THIS
+
   fullyParallel: true,
 
   forbidOnly: !!process.env.CI,
