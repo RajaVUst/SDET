@@ -1,0 +1,61 @@
+name: UI CI
+
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+    branches:
+      - main
+
+  workflow_dispatch:
+
+  permissions:
+  contents: write
+
+env:
+  DEEPAK_USER_EMAIL: ${{ secrets.DEEPAK_USER_EMAIL }}
+  DEEPAK_USER_PHONE_NUMBER: ${{ secrets.DEEPAK_USER_PHONE_NUMBER }}
+
+  DEEPAK_BASE_URL: ${{ secrets.DEEPAK_BASE_URL }}
+
+  DEEPAK_CARD_HOLDER_NAME: ${{ secrets.DEEPAK_CARD_HOLDER_NAME }}
+  DEEPAK_CARD_NUMBER: ${{ secrets.DEEPAK_CARD_NUMBER }}
+  DEEPAK_CARD_EXPIRY: ${{ secrets.DEEPAK_CARD_EXPIRY }}
+  DEEPAK_CARD_CVV: ${{ secrets.DEEPAK_CARD_CVV }}
+
+jobs:
+  ui-tests:
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: UI-Playwright
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: UI-Playwright/package-lock.json
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run UI Tests
+        run: npx playwright test
+
+      - name: Upload Allure Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-allure-results
+          path: UI-Playwright/allure-results
+          if-no-files-found: warn

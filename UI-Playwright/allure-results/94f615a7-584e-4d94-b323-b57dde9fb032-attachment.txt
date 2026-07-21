@@ -1,0 +1,7 @@
+2026-07-21 13:11:52 [INFO] Successful Payment Validation Test Starts..
+2026-07-21 13:11:57 [INFO] Adding IronGrip Adjustable Dumbbells with Quantity  1
+2026-07-21 13:11:57 [INFO] Filling Contact Information..
+2026-07-21 13:11:58 [INFO] Filling Shipping Information..
+2026-07-21 13:11:58 [INFO] Filling Payment Details..
+2026-07-21 13:11:58 [INFO] Placing Order..
+2026-07-21 13:12:00 [INFO] Payment Successful and Ordered Placed Successfully

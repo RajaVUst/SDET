@@ -1,0 +1,20 @@
+{
+  "product": {
+    "category": "Sports & Outdoors",
+    "name": "IronGrip Adjustable Dumbbells",
+    "count": "1",
+    "subTotal": "$149.99",
+    "tax": "$12.75",
+    "total": "$162.74"
+  },
+  "duplicateProduct": {
+    "name": "ThinSlate 15 Laptop",
+    "category": "Electronics",
+    "count": "10",
+    "cartCardCount": "1",
+    "subTotal": "$8499.90",
+    "tax": "$722.49",
+    "total": "$9222.39"
+  }
+  
+}

@@ -1,0 +1,4 @@
+2026-07-21 13:11:41 [INFO] Duplicate Product Validation Test Starts..
+2026-07-21 13:11:48 [INFO] Adding ThinSlate 15 Laptop with Quantity  10
+2026-07-21 13:11:49 [INFO] Validing Cart Items and Checking For Any Duplicate Product Cards
+2026-07-21 13:11:50 [INFO] Cart Validation Successfull and No Duplicate Product Cards Found

@@ -1,0 +1,10 @@
+{
+  "user": {
+    "fullName": "Jane Smith",
+    "address": "123 Main Street",
+    "city": "Springfield",
+    "state": "TN",
+    "zipCode": "62701",
+    "country": "USA"
+  }
+}
