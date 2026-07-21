@@ -48,6 +48,8 @@ export class PaymentFlow {
         });
         await expect(this.confirm.orderItem).toBeVisible();
         await expect(this.payment.confirmation).toBeVisible();
+        await expect(this.confirm.orderNo).toBeVisible();
+        await expect(this.confirm.confirmation).toBeVisible();
         
         
 

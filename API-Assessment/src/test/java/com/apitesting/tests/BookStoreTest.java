@@ -6,8 +6,8 @@ import com.apitesting.data.secrets.Secrets;
 import io.restassured.response.Response;
 import org.junit.jupiter.api.Test;
 
-import static org.hamcrest.Matchers.equalTo;
-import static org.hamcrest.Matchers.notNullValue;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchemaInClasspath;
+import static org.hamcrest.Matchers.*;
 
 public class BookStoreTest{
     AuthClient authClient = new AuthClient();
@@ -37,6 +37,18 @@ public class BookStoreTest{
         Response books = bookClient.getBooks(token);
         books.then()
                 .statusCode(200)
-                .body("books[0].title",notNullValue());
+                .body("books[0].title",notNullValue())
+                .body(matchesJsonSchemaInClasspath("schemas/book_responses.schema.json"));
+    }
+
+    @Test
+    void cannotLoginWithInvalidCredentials(){
+        Response tokenResponse = authClient.getToken(Secrets.username(),"wrong");
+        tokenResponse.then()
+                .statusCode(200)
+                .body("token",isEmptyOrNullString())
+                .body("status",equalTo("Failed"))
+                .body("result",equalTo("User authorization failed."));
+
     }
 }
