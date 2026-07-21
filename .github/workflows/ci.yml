@@ -28,21 +28,23 @@ jobs:
       - name: Checkout UI project
         uses: actions/checkout@v4
         with:
+          repository: ${{ github.repository }}
+          ref: ${{ github.ref }}
           path: ui
 
       - name: Checkout API project
         uses: actions/checkout@v4
         with:
-          repository: ${{ github.repository_owner }}/ApiTesting_Final_Capstone
-          ref: 304525-chandana_finalcapstone
+          repository: ${{ github.repository }}
+          ref: ${{ github.ref }}
           path: api
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 24
           cache: npm
-          cache-dependency-path: ui/package-lock.json
+          cache-dependency-path: ui/UI_Final_Capstone/package-lock.json
 
       - name: Set up Java 21
         uses: actions/setup-java@v4
@@ -52,15 +54,15 @@ jobs:
           cache: maven
 
       - name: Install UI dependencies
-        working-directory: ui
+        working-directory: ui/UI_Final_Capstone
         run: npm ci
 
       - name: Install Playwright browsers
-        working-directory: ui
+        working-directory: ui/UI_Final_Capstone
         run: npx playwright install --with-deps chromium
 
       - name: Run UI Playwright tests
-        working-directory: ui
+        working-directory: ui/UI_Final_Capstone
         env:
           BASE_URL: ${{ env.UI_BASE_URL }}
           DEMO_USER_ID: ${{ env.UI_DEMO_USER_ID }}
@@ -68,7 +70,7 @@ jobs:
         continue-on-error: true
 
       - name: Run API Maven tests
-        working-directory: api
+        working-directory: api/ApiTesting_Final_Capstone
         env:
           BASE_URL: ${{ env.API_BASE_URL }}
           USERNAME: ${{ env.API_USERNAME }}
@@ -78,15 +80,15 @@ jobs:
 
       - name: Generate API Allure report
         if: always()
-        working-directory: api
+        working-directory: api/ApiTesting_Final_Capstone
         run: mvn -B allure:report
 
       - name: Generate combined Allure report
         if: always()
         run: |
           mkdir -p allure-results-combined
-          if [ -d ui/allure-results ]; then cp -R ui/allure-results/. allure-results-combined/; fi
-          if [ -d api/target/allure-results ]; then cp -R api/target/allure-results/. allure-results-combined/; fi
+          if [ -d ui/UI_Final_Capstone/allure-results ]; then cp -R ui/UI_Final_Capstone/allure-results/. allure-results-combined/; fi
+          if [ -d api/ApiTesting_Final_Capstone/target/allure-results ]; then cp -R api/ApiTesting_Final_Capstone/target/allure-results/. allure-results-combined/; fi
           npm install -g allure-commandline
           allure generate allure-results-combined -o allure-report --clean
 
@@ -95,7 +97,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: playwright-html-report
-          path: ui/playwright-report/
+          path: ui/UI_Final_Capstone/playwright-report/
           retention-days: 30
 
       - name: Upload UI test results
@@ -103,7 +105,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ui-test-results
-          path: ui/test-results/
+          path: ui/UI_Final_Capstone/test-results/
           retention-days: 30
 
       - name: Upload UI Allure results
@@ -111,7 +113,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ui-allure-results
-          path: ui/allure-results/
+          path: ui/UI_Final_Capstone/allure-results/
           retention-days: 30
 
       - name: Upload API Allure results
@@ -119,7 +121,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: api-allure-results
-          path: api/target/allure-results/
+          path: api/ApiTesting_Final_Capstone/target/allure-results/
           retention-days: 30
 
       - name: Upload combined Allure report
