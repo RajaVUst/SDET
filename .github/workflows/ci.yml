@@ -21,7 +21,7 @@ jobs:
           cache: maven
 
       - name: Run REST Assured API tests
-        run: mvn --batch-mode verify
+        run: mvn test
         working-directory: FinalCapstone_APIAutomation
 
       - name: Upload API test reports
