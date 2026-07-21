@@ -1,11 +1,11 @@
 name: Playwright Tests
 on:
   push:
-    branches: [ main,  Sankaran_Final_Assessment]
+    branches: [ main, Sankaran_Final_Assessment]
   pull_request:
     branches: [ main]
 jobs:
-ui-tests:
+  ui-tests:
     runs-on: ubuntu-latest
     env:
       Sankaran_UI_Base_URL: ${{ secrets.Sankaran_UI_Base_URL }}
@@ -30,13 +30,15 @@ ui-tests:
 
       - name: Install dependencies
         run: npm ci
+        working-directory: FinalCapstone_UIAutomation
 
       - name: Install Playwright browsers
         run: npx playwright install --with-deps
+        working-directory: FinalCapstone_UIAutomation
 
       - name: Run UI tests
-
         run: npx playwright test
+        working-directory: FinalCapstone_UIAutomation
 
       - name: Upload traces
         if: always()
