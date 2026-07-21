@@ -1,0 +1,44 @@
+# IDE files
+.idea/
+.vscode/
+*.iml
+*.ipr
+*.iws
+
+# Local environment and secrets
+.env
+.env.*
+!.env.example
+
+# Java and Maven
+**/target/
+**/.allure/
+*.class
+*.jar
+hs_err_pid*
+
+# Node.js
+**/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Test and report output
+**/test-results/
+**/playwright-report/
+**/blob-report/
+**/allure-results/
+**/allure-report/
+**/coverage/
+
+# Logs
+*.log
+logs/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Local agent metadata
+.agents/
+.codex/
