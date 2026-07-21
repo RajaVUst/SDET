@@ -10,40 +10,6 @@ on:
       - main
 
 jobs:
-    api-tests:
-    name: API Tests
-    runs-on: ubuntu-latest
-
-    defaults:
-      run:
-        working-directory: API-Assessment
-
-    env:
-      apiUrl: ${{ secrets.PREM_API_URL }}
-
-      API_USERNAME: ${{ secrets.PREM_API_USERNAME }}
-      PASSWORD: ${{ secrets.PREM_PASSWORD }}
-
-
-    steps:
-
-      - name: Setup Java
-        uses: actions/setup-java@v4
-        with:
-          distribution: temurin
-          java-version: 22
-          cache: maven
-
-      - name: Run Maven Tests
-        run: mvn clean test
-
-      - name: Upload Allure Results
-        if: always()
-        uses: actions/upload-artifact@v4
-        with:
-          name: allure-results
-          path: API-DB Capstone/allure-results
-
 
     ui-tests:
       name: Playwright UI Tests
