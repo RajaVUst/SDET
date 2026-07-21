@@ -7,11 +7,8 @@ export class ProductPage extends BasePage{
     constructor(page: Page)
     {super(page)}
 
-    private removeBtn = this.page.getByRole("button",{name:"Remove"});
-    emptyCartHeader = this.page.getByRole("heading",{name:"Your cart is empty"});
-    async remove(){
-        await this.removeBtn.first().click();
-    }
+    private addToCartBtn = this.page.getByTestId("add-to-cart-detail");
+    private buyBtn = this.page.getByTestId("buy-now-button")
 
    
 }

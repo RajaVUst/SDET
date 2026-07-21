@@ -27,13 +27,25 @@ export class RemoveProductFlow {
         contentType: "image/png",
         });
 
-        console.log(await this.cart.cartCount);
         await expect(await this.cart.getCartCount()).toBe("3");
+        const firstItemPrice = await this.cart.getCartItemPrice("001");
+        console.log(firstItemPrice);
+        const firstNewTotal = Math.round(await this.cart.getCartTotal()*100-firstItemPrice*100-(firstItemPrice*100*0.085));
+        console.log(firstNewTotal);
         await this.cart.remove();
+        await expect(this.cart.page.getByText("$"+firstNewTotal/100)).toBeVisible();
+
         await expect(await this.cart.getCartCount()).toBe("2");
+        const secondItemPrice = await this.cart.getCartItemPrice("002");
+        const secondNewTotal = Math.round(await this.cart.getCartTotal()*100-secondItemPrice*100-(secondItemPrice*100*0.085));
         await this.cart.remove();
+        await expect(this.cart.page.getByText("$"+secondNewTotal/100));
+
         await expect(await this.cart.getCartCount()).toBe("1");
+        const thirdItemPrice = await this.cart.getCartItemPrice("003");
+        const thirdNewTotal = Math.round(await this.cart.getCartTotal()*100-secondItemPrice*100-(secondItemPrice*100*0.085));
         await this.cart.remove();
+        await expect(this.cart.page.getByText("$"+secondNewTotal/100))
 
         await testInfo.attach("Empty Cart", {
         body: await this.cart.page.screenshot(),
