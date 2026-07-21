@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: [main, ragumaan_FINALASSESSMENT]
+    branches: [main, ragumaan_finalassessment]
   pull_request:
-    branches: [main, ragumaan_FINALASSESSMENT]
+    branches: [main, ragumaan_finalassessment]
 
 jobs:
   playwright:
