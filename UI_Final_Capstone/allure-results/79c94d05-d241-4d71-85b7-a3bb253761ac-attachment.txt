@@ -1,0 +1,4 @@
+2026-07-21 12:58:14 | INFO | TEST-894218-960 | 1D272412 | [Framework] [Initialize] Starting Test Execution
+2026-07-21 12:58:14 | INFO | TEST-894218-960 | 1D272412 | [Home] [Launch] Opening RetailMart
+2026-07-21 12:58:19 | INFO | TEST-894218-960 | 1D272412 | [Payment] [Add Products] Adding products to cart
+2026-07-21 12:58:21 | INFO | TEST-894218-960 | 1D272412 | [Checkout] [Payment] Entering payment details
