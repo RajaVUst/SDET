@@ -1,5 +1,5 @@
 
-# Playwright
+# Playwright and test artifacts
 node_modules/
 /test-results/
 /playwright-report/
@@ -7,13 +7,14 @@ node_modules/
 /playwright/.cache/
 /playwright/.auth/
 
-# Reports and test artifacts
-allure-results/
-allure-report/
-reports/
-reports-html/
-playwright-report/
-data/
+# Reports and generated output
+/allure-results/
+/allure-report/
+/.allure/
+/reports/
+/reports-html/
+/data/
+/coverage/
 
 # Environment files
 .env

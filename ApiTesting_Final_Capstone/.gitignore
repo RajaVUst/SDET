@@ -3,18 +3,22 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 .kotlin
+
+# Reports and generated output
 /allure-results/
-allure-report/
-allure-results/
-.allure/
+/allure-report/
+/.allure/
+/reports/
+/reports-html/
+/playwright-report/
+/playwright/.cache/
+/test-results/
+/blob-report/
+/coverage/
 
 # Node / Playwright / UI artifacts
 node_modules/
 package-lock.json
-playwright-report/
-playwright/.cache/
-test-results/
-reports/
 .npm/
 
 # Environment files
