@@ -29,9 +29,6 @@ export class CartPage extends BasePage{
     async checkout(){
         await this.checkoutBtn.click();
     }
-    // async getPnr(): Promise<string> {
-    //     return (await this.pnr.innerText()).trim();
-    // }
 
 
 }
