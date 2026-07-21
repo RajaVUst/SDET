@@ -39,8 +39,11 @@ export class PaymentFlow {
 
         await this.checkout.continueToPayment();
 
+        this.log.info("ENTERING PAYMENT DETAILS")
         await this.payment.fillPaymentDetails(config.cardName,config.cardNo,config.expiry,config.cvv);
         await expect(this.payment.orderItem).toBeVisible();
+
+        this.log.info("PLACING ORDER")
         await this.payment.placeOrder();
         await testInfo.attach("Order Confirmed", {
         body: await this.confirm.page.screenshot(),
@@ -48,6 +51,7 @@ export class PaymentFlow {
         });
         await expect(this.confirm.orderItem).toBeVisible();
         await expect(this.payment.confirmation).toBeVisible();
+        this.log.info("ORDER CONFIRMED")
         await expect(this.confirm.orderNo).toBeVisible();
         await expect(this.confirm.confirmation).toBeVisible();
         
