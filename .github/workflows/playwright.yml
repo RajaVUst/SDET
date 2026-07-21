@@ -1,4 +1,4 @@
-name: UI
+name: UI_final_capstone
 
 on:
   push:
@@ -10,7 +10,9 @@ jobs:
   test:
     timeout-minutes: 60
     runs-on: ubuntu-latest
-    working-directory: ./UI_Final_Capstone
+    defaults:
+      run:
+        working-directory: ./UI_Final_Capstone
     env:
       BASE_URL: ${{ secrets.BASE_URL || 'https://chess-agent-83252463.figma.site/' }}
       DEMO_USER_ID: ${{ secrets.DEMO_USER_ID || 'demo-login-user-003' }}
