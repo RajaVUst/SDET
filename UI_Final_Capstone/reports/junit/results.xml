@@ -1,9 +1,9 @@
-<testsuites id="" name="" tests="3" failures="0" skipped="0" errors="0" time="29.782162">
-<testsuite name="cartvalidation.spec.ts" timestamp="2026-07-21T08:01:26.987Z" hostname="chromium" tests="3" failures="0" skipped="0" time="51.222" errors="0">
-<testcase name="Shopping Cart › Add multiple products and validate cart" classname="cartvalidation.spec.ts" time="21.892">
+<testsuites id="" name="" tests="6" failures="0" skipped="0" errors="0" time="92.820807">
+<testsuite name="cartvalidation.spec.ts" timestamp="2026-07-21T11:31:54.184Z" hostname="chromium" tests="3" failures="0" skipped="0" time="167.354" errors="0">
+<testcase name="Shopping Cart › Add multiple products and validate cart" classname="cartvalidation.spec.ts" time="66.718">
 <system-out>
-<![CDATA[2026-07-21 13:31:34 | INFO | TEST-894154-915 | 21E05D3B | [Framework] [Initialize] Starting Test Execution
-2026-07-21 13:31:34 | INFO | TEST-894154-915 | 21E05D3B | [Home] [Launch] Opening RetailMart
+<![CDATA[2026-07-21 17:02:21 | INFO | TEST-541381-713 | 0E2FAB99 | [Framework] [Initialize] Starting Test Execution
+2026-07-21 17:02:21 | INFO | TEST-541381-713 | 0E2FAB99 | [Home] [Launch] Opening RetailMart
 Accessibility Violations
 color-contrast
 Ensure the contrast between foreground and background colors meets WCAG 2 AA minimum contrast ratio thresholds
@@ -14,17 +14,42 @@ Ensure landmarks are unique
 ]]>
 </system-out>
 </testcase>
-<testcase name="Shopping Cart › Negative - Search unavailable product" classname="cartvalidation.spec.ts" time="15.293">
+<testcase name="Shopping Cart › Negative - Search unavailable product" classname="cartvalidation.spec.ts" time="49.67">
 <system-out>
-<![CDATA[2026-07-21 13:31:34 | INFO | TEST-894829-566 | 96D3F63A | [Framework] [Initialize] Starting Test Execution
-2026-07-21 13:31:34 | INFO | TEST-894829-566 | 96D3F63A | [Home] [Launch] Opening RetailMart
+<![CDATA[2026-07-21 17:02:19 | INFO | TEST-539879-970 | 5BA9B226 | [Framework] [Initialize] Starting Test Execution
+2026-07-21 17:02:19 | INFO | TEST-539879-970 | 5BA9B226 | [Home] [Launch] Opening RetailMart
 ]]>
 </system-out>
 </testcase>
-<testcase name="Shopping Cart › Edge Case - Search with empty value" classname="cartvalidation.spec.ts" time="14.037">
+<testcase name="Shopping Cart › Edge Case - Search with empty value" classname="cartvalidation.spec.ts" time="50.966">
 <system-out>
-<![CDATA[2026-07-21 13:31:34 | INFO | TEST-894083-191 | 52E41D6D | [Framework] [Initialize] Starting Test Execution
-2026-07-21 13:31:34 | INFO | TEST-894083-191 | 52E41D6D | [Home] [Launch] Opening RetailMart
+<![CDATA[2026-07-21 17:02:18 | INFO | TEST-538153-147 | 800694EE | [Framework] [Initialize] Starting Test Execution
+2026-07-21 17:02:18 | INFO | TEST-538153-147 | 800694EE | [Home] [Launch] Opening RetailMart
+]]>
+</system-out>
+</testcase>
+</testsuite>
+<testsuite name="Paymentvalidation.spec.ts" timestamp="2026-07-21T11:31:54.184Z" hostname="chromium" tests="3" failures="0" skipped="0" time="183.503" errors="0">
+<testcase name="Payment Validation › Successful Payment Validation" classname="Paymentvalidation.spec.ts" time="72.183">
+<system-out>
+<![CDATA[2026-07-21 17:02:20 | INFO | TEST-540051-468 | EAE13457 | [Framework] [Initialize] Starting Test Execution
+2026-07-21 17:02:20 | INFO | TEST-540051-468 | EAE13457 | [Home] [Launch] Opening RetailMart
+2026-07-21 17:02:28 | INFO | TEST-540051-468 | EAE13457 | [Payment] [Add Products] Adding products to cart
+2026-07-21 17:02:33 | INFO | TEST-540051-468 | EAE13457 | [Checkout] [Payment] Entering payment details
+]]>
+</system-out>
+</testcase>
+<testcase name="Payment Validation › Negative - Card Declined" classname="Paymentvalidation.spec.ts" time="58.744">
+<system-out>
+<![CDATA[2026-07-21 17:02:19 | INFO | TEST-539773-773 | 630EBF2E | [Framework] [Initialize] Starting Test Execution
+2026-07-21 17:02:19 | INFO | TEST-539773-773 | 630EBF2E | [Home] [Launch] Opening RetailMart
+]]>
+</system-out>
+</testcase>
+<testcase name="Payment Validation › Edge Case - Empty Payment Details" classname="Paymentvalidation.spec.ts" time="52.576">
+<system-out>
+<![CDATA[2026-07-21 17:02:19 | INFO | TEST-539726-604 | 1652BAB0 | [Framework] [Initialize] Starting Test Execution
+2026-07-21 17:02:19 | INFO | TEST-539726-604 | 1652BAB0 | [Home] [Launch] Opening RetailMart
 ]]>
 </system-out>
 </testcase>

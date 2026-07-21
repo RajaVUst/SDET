@@ -1,57 +1,81 @@
-# Final Practice API + UI Tests
+# API Testing Final Capstone
 
-Project overview: FinalPractice automated tests (API + UI). Replace the placeholder below with your name and UST ID.
+This repository contains API automation tests built with Java, Maven, Rest-Assured, JUnit 5, and Allure reporting.
 
-- Author: YOUR NAME — UST ID: USTXXXXX
+## Project Overview
 
-## What this repo contains
+The test suite covers:
+- user creation
+- authentication token generation
+- retrieving books for an authenticated user
 
-- Maven-based API tests (Rest-Assured + JUnit 5) under `src/test/java`
-- A minimal Playwright UI test setup under `tests/` (Node) to satisfy CI UI test requirement
-- CI pipeline workflow at `.github/workflows/ci.yml` that runs both suites and publishes Allure artifacts
+## Tech Stack
 
-## How to run locally
+- Java 21
+- Maven
+- Rest-Assured
+- JUnit 5
+- Allure
+- JSON Schema Validation
 
-Run API tests (Maven):
+## Project Structure
+
+- src/test/java/api/clients - API client classes
+- src/test/java/config - environment and endpoint configuration
+- src/test/java/models - request and response models
+- src/test/java/tests - test cases
+- src/test/resources - config properties and JSON schemas
+
+## Prerequisites
+
+- Java 21 or higher
+- Maven
+
+## Configuration
+
+The tests read configuration from environment variables first and fall back to the properties file under:
+
+- src/test/resources/config.properties
+
+Required environment variables:
+- BASE_URL
+- USERNAME
+- PASSWORD
+
+## Run Tests Locally
+
+Run all tests:
 
 ```bash
 mvn -B test
 ```
 
-Run Playwright UI tests (Node):
+Run tests and generate the Allure report:
 
 ```bash
-npm ci
-npx playwright install --with-deps
-npx playwright test
+mvn -B test verify
 ```
 
-Generate Allure report from Java tests (if you have Allure CLI installed):
+## Generate Allure Report
+
+After running the tests, generate the HTML report with:
 
 ```bash
 mvn -B allure:report
-# or generate from allure-results produced by Playwright:
-# npm i -g allure-commandline --save-dev
-# allure generate ./allure-results -o ./allure-report --clean
-# allure open ./allure-report
 ```
 
-## CI pipeline
+The report will be available in:
 
-The CI workflow runs on push/pr and does the following:
+- target/site/allure-maven-plugin/index.html
 
-- Checkout, set up JDK and Node
-- Run Maven API tests
-- If Playwright config exists (we added a minimal one), it installs node deps, installs browsers, and runs Playwright tests
-- Generates the Maven Allure report and uploads both Maven report and Playwright `allure-results` as pipeline artifacts
+## Test Cases
 
-When you submit your project for evaluation:
-
-- Make sure to replace the `Author` line above with your name and UST ID
-- Push the branch to GitHub and open the Actions run; copy the pipeline run link for your viva
-- Download the Allure artifacts from the successful workflow run as your Test Execution Report
+The current suite includes:
+- TokenGenerationTest
+- UserCreationTest
+- VerifyBooksTests
 
 ## Notes
 
-- The Playwright setup here is minimal to ensure CI executes UI tests — expand UI tests as needed.
-- If you prefer to combine Allure results into a single HTML report, install the Allure CLI locally or on CI and generate the report from the combined `allure-results` directories.
+- Username and password should be provided through environment variables or secure CI secrets.
+- The base URL defaults to the DemoQA API in the project configuration.

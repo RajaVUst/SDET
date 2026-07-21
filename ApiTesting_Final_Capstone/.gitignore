@@ -3,6 +3,25 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 .kotlin
+/allure-results/
+allure-report/
+allure-results/
+
+# Node / Playwright / UI artifacts
+node_modules/
+package-lock.json
+playwright-report/
+playwright/.cache/
+test-results/
+reports/
+.npm/
+
+# Environment files
+.env
+.env.*
+
+# Logs
+*.log
 
 ### IntelliJ IDEA ###
 .idea/modules.xml
