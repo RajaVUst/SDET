@@ -16,28 +16,31 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up JDK 22
-        uses: actions/setup-java@v3
+        uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: 22
-
-      - name: Build with Maven
-        run: mvn clean install
+          cache: maven
+          cache-dependency-path: api_restassured/pom.xml
 
       - name: Run API tests
-        run: mvn clean test
+        run: mvn -B clean test
 
       - name: Generate Allure report
-        run: mvn allure:report
+        if: always()
+        run: mvn -B allure:report
 
       - name: Upload Allure report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: allure-report
+          path: api_restassured/target/site/allure-maven-plugin/
+          if-no-files-found: warn
+
   playwright:
     runs-on: ubuntu-latest
 
@@ -47,12 +50,12 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: Set up Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
-          node-version: 18
+          node-version: 22
           cache: npm
           cache-dependency-path: ui_playwright/package-lock.json
 
@@ -67,7 +70,7 @@ jobs:
 
       - name: Upload Playwright report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: playwright-report
           path: ui_playwright/playwright-report/
