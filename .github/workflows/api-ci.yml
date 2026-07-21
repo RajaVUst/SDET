@@ -18,7 +18,7 @@ jobs:
 
     env:
       BASE_URL: ${{ secrets.RISHIKA_API_BASE_URL }}
-      USERNAME: ${{ secrets.RISHIKA_USER }}
+      USERNAME: ${{ secrets.USER }}
       PASSWORD: ${{ secrets.RISHIKA_API_PASSWORD }}
 
     steps:
@@ -35,11 +35,11 @@ jobs:
       - name: Build Project
         run: mvn clean compile
 
-      - name: Verify Environment Variables
-        run: |
-          echo "BASE_URL=$BASE_URL"
-          echo "USERNAME=$USERNAME"
-          echo "PASSWORD length=${#PASSWORD}"
+      # - name: Verify Environment Variables
+      #   run: |
+      #     echo "BASE_URL=$BASE_URL"
+      #     echo "USERNAME=$USERNAME"
+      #     echo "PASSWORD length=${#PASSWORD}"
 
       - name: Run API Tests
         run: mvn test
