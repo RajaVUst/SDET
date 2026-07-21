@@ -33,6 +33,7 @@ trace.zip
 # =========================
 allure-results/
 allure-report/
+.allure/
 
 # =========================
 # Java / Maven (RestAssured)
