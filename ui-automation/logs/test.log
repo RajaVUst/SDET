@@ -1,0 +1,34 @@
+2026-07-21T07:07:34.945Z [INFO] [HomePage] Adding product to cart
+2026-07-21T07:07:35.382Z [INFO] [HomePage] Navigating to cart Page
+2026-07-21T07:07:35.640Z [INFO] [CartPage] Navigating to checkout page
+2026-07-21T07:07:35.870Z [INFO] [CheckoutPage] Entering details
+2026-07-21T07:09:14.451Z [INFO] [HomePage] Adding product to cart
+2026-07-21T07:09:14.790Z [INFO] [HomePage] Navigating to cart Page
+2026-07-21T07:09:15.008Z [INFO] [CartPage] Navigating to checkout page
+2026-07-21T07:09:15.165Z [INFO] [CheckoutPage] Entering details
+2026-07-21T07:09:15.477Z [INFO] [CheckoutPage] Navigating to PaymentPage
+2026-07-21T07:09:15.589Z [INFO] [PaymentPage] Entering Payment Details
+2026-07-21T07:09:15.721Z [INFO] [PaymentPage] Clicking on place order
+2026-07-21T07:09:15.767Z [INFO] [PaymentPage] Verifying payment failure 
+2026-07-21T07:16:30.500Z [INFO] [HomePage] Adding product to cart
+2026-07-21T07:16:30.838Z [INFO] [HomePage] Navigating to cart Page
+2026-07-21T07:16:31.026Z [INFO] [CartPage] Navigating to checkout page
+2026-07-21T07:16:31.215Z [INFO] [CheckoutPage] Entering details
+2026-07-21T07:16:31.477Z [INFO] [CheckoutPage] Navigating to PaymentPage
+2026-07-21T07:16:31.579Z [INFO] [PaymentPage] Entering Payment Details
+2026-07-21T07:16:31.708Z [INFO] [PaymentPage] Clicking on place order
+2026-07-21T07:16:31.751Z [INFO] [PaymentPage] Verifying payment failure 
+2026-07-21T07:43:18.879Z [INFO] [HomePage] Adding product to cart
+2026-07-21T07:43:19.250Z [INFO] [HomePage] Navigating to cart Page
+2026-07-21T07:43:19.407Z [INFO] [CartPage] Navigating to checkout page
+2026-07-21T07:43:19.503Z [INFO] [CheckoutPage] Entering details
+2026-07-21T07:43:19.857Z [INFO] [CheckoutPage] Navigating to PaymentPage
+2026-07-21T07:43:19.982Z [INFO] [PaymentPage] Entering Payment Details
+2026-07-21T07:48:51.367Z [INFO] [HomePage] Adding product to cart
+2026-07-21T07:48:51.732Z [INFO] [HomePage] Navigating to cart Page
+2026-07-21T07:48:51.978Z [INFO] [CartPage] Navigating to checkout page
+2026-07-21T07:48:52.250Z [INFO] [CheckoutPage] Entering details
+2026-07-21T07:48:52.538Z [INFO] [CheckoutPage] Navigating to PaymentPage
+2026-07-21T07:48:52.662Z [INFO] [PaymentPage] Entering Payment Details
+2026-07-21T07:48:52.798Z [INFO] [PaymentPage] Clicking on place order
+2026-07-21T07:48:52.870Z [INFO] [PaymentPage] Verifying payment failure 
