@@ -3,11 +3,11 @@ name: UI CI
 on:
   push:
     branches:
-      - main
+      - capstone/291493-deepak-raj
 
   pull_request:
     branches:
-      - main
+      - capstone/291493-deepak-raj
 
   workflow_dispatch:
 
