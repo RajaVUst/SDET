@@ -16,9 +16,9 @@ export class CartPage extends BasePage{
     emptyCartHeader = this.page.getByRole("heading",{name:"Your cart is empty"});
     checkoutBtn = this.page.getByRole("button",{name:"Proceed to Checkout"});
     
-    // const priceText = await this.page.getByTestId('cart-item-price-prod-001').textContent();
+    // priceText = this.page.getByTestId('cart-item-price-prod-001').textContent();
 
-    // const price = priceText.replace(/[^\d.]/g, '');
+
 
     
     async remove() {

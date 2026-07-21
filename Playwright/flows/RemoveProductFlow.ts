@@ -28,7 +28,7 @@ export class RemoveProductFlow {
         });
 
         console.log(await this.cart.cartCount);
-        // await expect(await this.cart.cartCount).toBe("3");
+        await expect(await this.cart.cartCount).toBe("3");
         await this.cart.remove();
         // await expect(await this.cart.cartCount).toBe("2");
         await this.cart.remove();
