@@ -16,6 +16,12 @@ jobs:
     env:
       BASE_URL: ${{ secrets.BASE_URL || 'https://chess-agent-83252463.figma.site/' }}
       DEMO_USER_ID: ${{ secrets.DEMO_USER_ID || 'demo-login-user-003' }}
+      TEST_USERNAME: ${{ secrets.TEST_USERNAME || 'test-user' }}
+      TEST_PASSWORD: ${{ secrets.TEST_PASSWORD }}
+      CARD_HOLDER_NAME: ${{ secrets.CARD_HOLDER_NAME || 'Test User' }}
+      CARD_NUMBER: ${{ secrets.CARD_NUMBER || '4485601116237104' }}
+      CARD_EXPIRY: ${{ secrets.CARD_EXPIRY || '12/30' }}
+      CARD_CVV: ${{ secrets.CARD_CVV || '123' }}
       HEADLESS: 'true'
       TIMEOUT: '30000'
       CI: 'true'

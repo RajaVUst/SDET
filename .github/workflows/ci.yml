@@ -1,0 +1,76 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - Chandana_final_capstone
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test-and-report:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '21'
+          cache: maven
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: npm
+
+      - name: Run API tests with Maven
+        id: api-tests
+        continue-on-error: true
+        run: mvn -B test
+
+      - name: Run Playwright tests if configured
+        id: playwright-tests
+        continue-on-error: true
+        shell: bash
+        run: |
+          if [ -f package.json ] || [ -f playwright.config.ts ] || [ -f playwright.config.js ] || [ -f playwright.config.cjs ] || [ -f playwright.config.mjs ]; then
+            npm ci
+            npx playwright install --with-deps
+            npx playwright test
+          else
+            echo "No Playwright configuration found. Skipping Playwright tests."
+          fi
+
+      - name: Generate Allure report
+        if: always()
+        run: mvn -B allure:report
+
+      - name: Upload Allure report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: allure-report
+          path: target/site/allure-maven-plugin/
+          if-no-files-found: warn
+
+      - name: Upload Playwright Allure results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-allure-results
+          path: allure-results/
+          if-no-files-found: warn
+
+      - name: Fail workflow if tests failed
+        if: steps.api-tests.outcome != 'success' || steps.playwright-tests.outcome != 'success'
+        run: |
+          echo "One or more test steps failed."
+          exit 1
