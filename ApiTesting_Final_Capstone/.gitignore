@@ -6,6 +6,7 @@ target/
 /allure-results/
 allure-report/
 allure-results/
+.allure/
 
 # Node / Playwright / UI artifacts
 node_modules/

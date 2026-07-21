@@ -12,6 +12,8 @@ allure-results/
 allure-report/
 reports/
 reports-html/
+playwright-report/
+data/
 
 # Environment files
 .env
