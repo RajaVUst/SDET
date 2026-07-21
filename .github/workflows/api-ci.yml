@@ -1,0 +1,46 @@
+name: Final Assessment API CI
+
+on:
+  push:
+    branches:
+      - capstone-307389-rishika
+
+  workflow_dispatch:
+
+jobs:
+  api-tests:
+    name: Rest Assured API Tests
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: api-automation
+
+    env:
+      BASE_URL: ${{ secrets.BASE_URL }}
+      USERNAME: ${{ secrets.USERNAME }}
+      PASSWORD: ${{ secrets.PASSWORD }}
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 22
+          cache: maven
+
+      - name: Build Project
+        run: mvn clean compile
+
+      - name: Run API Tests
+        run: mvn test
+
+      - name: Upload Surefire Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-test-results
+          path: api-automation/target/surefire-reports
