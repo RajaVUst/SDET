@@ -3,10 +3,10 @@ name: CI
 on:
   push:
     branches:
-      - ManiPrasad_Final_Assessment
+      - capstone/299166-ManiPrasad
   pull_request:
     branches:
-      - ManiPrasad_Final_Assessment
+      - capstone/299166-ManiPrasad
   workflow_dispatch:
 
 permissions:
