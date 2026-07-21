@@ -6,11 +6,12 @@ test("Validate tax calculation", async ({page, homePage, cartPage }) => {
     await homePage.clickAddToCartButton();
     await homePage.goToCartPage();
     await expect(page).toHaveURL(/.*cart/);
-    const subTotal = await cartPage.getSubTotal();
-    console.log("SubTotal: ", subTotal);
-    const taxAmount = await cartPage.getTaxAmount();
-    console.log("Tax Amount: ", taxAmount);
-    const sum = subTotal + taxAmount;
+    await cartPage.verifyTax();
+    // const subTotal = await cartPage.getSubTotal();
+    // console.log("SubTotal: ", subTotal);
+    // const taxAmount = await cartPage.getTaxAmount();
+    // console.log("Tax Amount: ", taxAmount);
+    // const sum = subTotal + taxAmount;
     //console.log("Subtotal + Tax =", sum);
     //expect(sum).toBeGreaterThanOrEqual(0);
 });

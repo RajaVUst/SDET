@@ -1,4 +1,4 @@
-import { Locator, Page } from "@playwright/test";
+import { Locator, Page, expect } from "@playwright/test";
 import { BasePage } from "./BasePage";
 import {logger } from "../utils/Logger";
 
@@ -21,6 +21,17 @@ export class CartPage extends BasePage {
     async getTaxAmount(): Promise<string>{
         return (await this.taxAmount.textContent()) ?? "";
     }
+
+    async verifyTax()
+  {
+    const productActualPrice = parseFloat((await this.subTotal.innerText()).replace(/[^0-9.-]+/g, ''));
+    const displayedTaxText = await this.taxAmount.innerText();
+    const displayedTax = parseFloat(displayedTaxText.replace(/[^0-9.-]+/g, ''));
+    const calculatedTax = (productActualPrice * 8.5) / 100;
+    const expectedTaxText = `$${calculatedTax.toFixed(2)}`;
+
+    await expect(this.taxAmount).toHaveText(expectedTaxText);
+  }
 
     async clickOnCheckout(){
         logger.info("[CartPage] Navigating to checkout page");

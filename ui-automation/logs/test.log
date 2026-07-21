@@ -32,3 +32,5 @@
 2026-07-21T07:48:52.662Z [INFO] [PaymentPage] Entering Payment Details
 2026-07-21T07:48:52.798Z [INFO] [PaymentPage] Clicking on place order
 2026-07-21T07:48:52.870Z [INFO] [PaymentPage] Verifying payment failure 
+2026-07-21T09:02:39.431Z [INFO] [HomePage] Adding product to cart
+2026-07-21T09:02:39.618Z [INFO] [HomePage] Navigating to cart Page
