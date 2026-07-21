@@ -1,0 +1,20 @@
+# RestAssured
+.gradle/
+build/
+.idea/
+*.iml
+.env
+.allure-results/
+.allure-report/
+
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+.env
+.env.*
+/allure-results/
+/allure-report/

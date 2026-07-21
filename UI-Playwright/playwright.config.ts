@@ -12,7 +12,7 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   retries: process.env.CI ? 2 : 0,
   workers: process.env.CI ? 1 : 1,
-  reporter: [['line'], ['allure-playwright', { details: false }]],
+  reporter: [['line'], ['allure-playwright', { detail: false }]],
   use: {
     baseURL: Env.get('DEEPAK_BASE_URL'),
     trace: 'on-first-retry',

@@ -1,0 +1,126 @@
+name: Final Assessment CI
+
+on:
+  push:
+    branches:
+      - capstone/291493-deepak-raj
+
+  pull_request:
+    branches:
+      - capstone/291493-deepak-raj
+
+  workflow_dispatch:
+
+jobs:
+  ui-tests:
+    name: UI Playwright Tests
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: UI-Playwright
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: UI-Playwright/package-lock.json
+
+      - name: Install Dependencies
+        run: npm ci
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run UI Tests
+        env:
+          DEEPAK_USER_EMAIL: ${{ secrets.DEEPAK_USER_EMAIL }}
+          DEEPAK_USER_PHONE_NUMBER: ${{ secrets.DEEPAK_USER_PHONE_NUMBER }}
+          DEEPAK_BASE_URL: ${{ secrets.DEEPAK_BASE_URL }}
+          DEEPAK_CARD_HOLDER_NAME: ${{ secrets.DEEPAK_CARD_HOLDER_NAME }}
+          DEEPAK_CARD_NUMBER: ${{ secrets.DEEPAK_CARD_NUMBER }}
+          DEEPAK_CARD_EXPIRY: ${{ secrets.DEEPAK_CARD_EXPIRY }}
+          DEEPAK_CARD_CVV: ${{ secrets.DEEPAK_CARD_CVV }}
+        run: npx playwright test
+
+      - name: Upload Playwright Report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: UI-Playwright/playwright-report
+          if-no-files-found: warn
+
+      - name: Upload UI Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-test-results
+          path: UI-Playwright/test-results
+          if-no-files-found: warn
+
+      - name: Upload UI Allure Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-allure-results
+          path: UI-Playwright/allure-results
+          if-no-files-found: warn
+
+  api-tests:
+    name: API RestAssured Tests
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: API-RestAssured
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup JDK
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+          cache: gradle
+
+      - name: Grant execute permission to Gradle Wrapper
+        run: chmod +x gradlew
+
+      - name: Run API Tests
+        env:
+          DEEPAK_BASE_API_URL: ${{ secrets.DEEPAK_BASE_API_URL }}
+          DEEPAK_API_USER_NAME: ${{ secrets.DEEPAK_API_USER_NAME }}
+          DEEPAK_API_PASSWORD: ${{ secrets.DEEPAK_API_PASSWORD }}
+        run: ./gradlew clean test
+
+      - name: Upload API Allure Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-allure-results
+          path: API-RestAssured/allure-results
+          if-no-files-found: warn
+
+      - name: Upload Gradle Test Reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: gradle-test-reports
+          path: API-RestAssured/build/reports/tests
+          if-no-files-found: warn
+
+      - name: Upload API Test Results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: api-test-results
+          path: API-RestAssured/build/test-results
+          if-no-files-found: warn
