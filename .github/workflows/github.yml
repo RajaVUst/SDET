@@ -88,7 +88,7 @@ jobs:
         uses: actions/setup-java@v4
         with:
           distribution: temurin
-          java-version: 21
+          java-version: 22
           cache: gradle
 
       - name: Grant execute permission to Gradle Wrapper
