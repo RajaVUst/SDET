@@ -1,0 +1,21 @@
+.idea/
+*.iml
+out/
+# Playwright
+node_modules/
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
+/playwright/.auth/
+.env
+.env.*
+allure-results/
+allure-report/
+# Temporary Files
+*.tmp
+*.bak
+*.swp
+
+# VS Code (if used)
+.vscode/
