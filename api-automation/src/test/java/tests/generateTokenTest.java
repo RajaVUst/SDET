@@ -13,6 +13,7 @@ import static org.hamcrest.Matchers.*;
 public class generateTokenTest {
 
     @Test
+    @Order(2)
     void generateToken() {
 
         User user = new User(EnvReader.get("USER"),EnvReader.get("PASSWORD"));

@@ -14,6 +14,7 @@ import static org.hamcrest.Matchers.*;
 public class createUserTest {
 
     @Test
+    @Order(1)
     void createUser() {
 
         User user = new User(EnvReader.get("USER"),EnvReader.get("PASSWORD"));

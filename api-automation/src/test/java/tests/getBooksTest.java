@@ -10,6 +10,7 @@ import static org.hamcrest.Matchers.*;
 public class getBooksTest  {
 
     @Test
+    @Order(3)
     void getBooks() {
 
         BookStoreClient.getBooks(TestData.token)

@@ -35,6 +35,12 @@ jobs:
       - name: Build Project
         run: mvn clean compile
 
+      - name: Verify Environment Variables
+        run: |
+          echo "BASE_URL=$BASE_URL"
+          echo "USERNAME=$USERNAME"
+          echo "PASSWORD length=${#PASSWORD}"
+
       - name: Run API Tests
         run: mvn test
 
