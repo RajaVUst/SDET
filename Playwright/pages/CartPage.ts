@@ -10,7 +10,7 @@ export class CartPage extends BasePage{
     
 
     cartCount = this.page.getByTestId("cart-count").textContent();
-    cartTotal = this.page.getByTestId("cart-total").textContent();
+    // cartTotal = this.page.getByTestId("cart-total").textContent();
     cartList = this.page.getByTestId("cart-items-list");
     private removeBtn = this.page.getByRole("button",{name:"Remove"});
     emptyCartHeader = this.page.getByRole("heading",{name:"Your cart is empty"});
