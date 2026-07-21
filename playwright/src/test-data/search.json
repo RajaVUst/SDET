@@ -1,0 +1,9 @@
+{
+  "validSearch": {
+    "product": "laptop",
+    "filter": {
+      "minPrice": 250,
+      "maxPrice": 500
+    }
+  }
+}
